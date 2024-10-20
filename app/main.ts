@@ -7,12 +7,7 @@ console.log("Logs from your program will appear here!");
 const server: net.Server = net.createServer((connection: net.Socket) => {
   // Handle connection
   connection.on("data", (data: Buffer) => {
-    const message = data.toString().trim();
-    if (message === "PING") {
-      connection.write("+PONG\r\n");
-    } else {
-      connection.write("-ERR unknown command\r\n");
-    }
+    connection.write("+PONG\r\n");
   });
 });
 

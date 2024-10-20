@@ -1,5 +1,9 @@
+import { decodeRESPMEssage } from "../utils";
+
 function ping(str?: string | undefined): string {
-  return str ? `+${str}\r\n` : "+PONG\r\n";
+  str = str ? decodeRESPMEssage(str) : decodeRESPMEssage("PONG");
+
+  return str;
 }
 
 export { ping };
